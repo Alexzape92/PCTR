@@ -18,6 +18,11 @@ public class matVectorConcurrente implements Runnable {
         }
     }
 
+    
+    /** 
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception{
         Random rd = new Random();
         for(int i = 0; i < n; i++)
