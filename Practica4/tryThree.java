@@ -1,5 +1,5 @@
 public class tryThree extends Thread{
-    static boolean wantp = false, wantq = false;
+    private static volatile boolean wantp = false, wantq = false;
     private short tHilo;
 
     public tryThree(short tipo){
@@ -7,22 +7,22 @@ public class tryThree extends Thread{
     }
 
     public void run(){
-        while(true){
-            switch(tHilo){
-                case 0:
-                    wantp = true;
-                    while(wantq); 
-                    System.out.println(getName());
-                    wantp = false;
-                    break;
-                case 1:
-                    wantq = true;
-                    while(wantp); 
-                    System.out.println(getName());
-                    wantq = false;
-                    break;
-            } 
-        }
+        switch(tHilo){
+            case 0:
+            while(true){
+                wantp = true;
+                while(wantq); 
+                System.out.println(getName());
+                wantp = false;
+            }
+            case 1:
+            while(true){
+                wantq = true;
+                while(wantp); 
+                System.out.println(getName());
+                wantq = false;
+            }
+        } 
     }
 
     
