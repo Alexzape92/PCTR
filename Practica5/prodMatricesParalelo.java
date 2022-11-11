@@ -28,7 +28,7 @@ public class prodMatricesParalelo implements Runnable {
      */
     public static void main(String[] args) throws Exception{
         Random rd = new Random();
-        int nTareas = 16;   //Suponemos que Cb = 0, pues es computación numérica
+        int nTareas = Runtime.getRuntime().availableProcessors();   //Suponemos que Cb = 0, pues es computación numérica
         int tVentana = n/nTareas, linf = 0, lsup = tVentana;
         for(int i = 0; i < n; i++)
             for(int j = 0; j < n; j++){
