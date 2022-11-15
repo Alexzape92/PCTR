@@ -7,10 +7,18 @@ public class prodMatricesParalelo implements Runnable {
     private static int mat[][] = new int[n][n], vec[][] = new int[n][n], res[][] = new int[n][n];
     private int ini, fin;
 
+    /**
+     * Constructor del hilo
+     * @param i Primera fila que debe modificar este hilo
+     * @param f Última fila a modificar (f no se modifica, se modifica hasta f-1)
+     */
     public prodMatricesParalelo(int i, int f){
         ini = i; fin = f;
     }
 
+    /**
+     * Define el comportamiento del hilo. Calcula y modifica las filas de la matriz resultado indicadas en el constructor
+     */
     public void run(){
         for(int i = ini; i < fin; i++){
             for(int j = 0; j < n; j++){
@@ -23,7 +31,8 @@ public class prodMatricesParalelo implements Runnable {
 
     
     /** 
-     * @param args
+     * Función principal. Rellena dos matrices con números enteros y las multiplica usando hilos y división automática de la nube de datos
+     * @param args  Argumentos por consola. No debemos pasarle ninguno
      * @throws Exception
      */
     public static void main(String[] args) throws Exception{

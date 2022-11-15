@@ -3,7 +3,8 @@ import java.util.Random;
 public class prodMatricesSecuencial {
     
     /** 
-     * @param args
+     * Función principal. Rellena dos matrices aleatoriamente y las multiplica
+     * @param args  Argumentos recibidos por consola. No debe enviarse ninguno
      */
     public static void main(String[] args) {
         int n = 400;

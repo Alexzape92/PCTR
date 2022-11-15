@@ -5,10 +5,18 @@ public class resImagenPar implements Runnable{
     private int ini, fin;   //filas de la matriz resultado de las que se encarga el hilo
     private static int k = 4000, mat[][] = new int[k][k], res[][] = new int[k][k];  //matrices y k
 
+    /**
+     * Constructor del hilo
+     * @param i Primera fila a modificar
+     * @param f Última fila a modificar (no se modifica f, se modifica hasta f-1)
+     */
     public resImagenPar(int i, int f){
         ini = i; fin = f;
     }
 
+    /**
+     * Define el comportamiento de cada hilo. Aplica el operador de resolución para las filas dadas por el constructor.
+     */
     public void run() {
         for(int i = ini; i < fin; i++)
             for(int j = 0; j < k; j++){
@@ -19,6 +27,11 @@ public class resImagenPar implements Runnable{
             }
     }
 
+    
+    /** 
+     * Función principal. Aplica el operador de resolución a una imagen.
+     * @param args  Argumentos dados por consola. No son necesarios en este caso.
+     */
     public static void main(String[] args) {
         int nTareas = 32;
         int tVentana = k/nTareas, linf = 0, lsup = tVentana;

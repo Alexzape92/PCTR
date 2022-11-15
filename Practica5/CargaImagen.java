@@ -63,6 +63,12 @@ public class CargaImagen {
         ImageIO.write(imagen, "png", new File(fichero));
     }
     
+    
+    /** 
+     * @param ficheroOriginal
+     * @param ficheroResultado
+     * @throws IOException
+     */
     public static void ConvertirAGris(String ficheroOriginal, String ficheroResultado) throws IOException {
         
         BufferedImage imagen = ImageIO.read(new File(ficheroOriginal));
@@ -80,6 +86,11 @@ public class CargaImagen {
         ImageIO.write(imagen, "png", new File(ficheroResultado));
     }
     
+    
+    /** 
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         
         System.out.println("Convirtiendo a escala de grises");        

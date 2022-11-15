@@ -1,5 +1,11 @@
 public class numPerfectos {
-    private static boolean esPerfecto(int num){
+    
+    /** 
+     * Comprueba si un número es perfecto o no
+     * @param num   Número a comprobar si es perfecto
+     * @return boolean
+     */
+    public static boolean esPerfecto(int num){
         int cont = 1;
         for(int i = 2; i < num; i++){
             if(num % i == 0)
@@ -9,6 +15,11 @@ public class numPerfectos {
         return cont == num;
     }
 
+    
+    /** 
+     * Función principal. Imprime por pantalla el número de números perfectos en un rango.
+     * @param args Argumentos recibidos por consola. Debe recibir el primer y último número a comprobar si es perfecto
+     */
     public static void main(String[] args) {
         int inicio = Integer.parseInt(args[0]);
         int fin = Integer.parseInt(args[1]);

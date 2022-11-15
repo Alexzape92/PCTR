@@ -1,6 +1,12 @@
 import java.util.Random;
 
 public class resImagen {
+    
+    /** 
+     * Función main. Aplica la operación de resaltado sobre una imagen
+     * @param args  Argumentos por consola. No se necesita ninguno
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception{
         int k = 48;
         int mat[][] = new int[k][k], res[][] = new int[k][k];

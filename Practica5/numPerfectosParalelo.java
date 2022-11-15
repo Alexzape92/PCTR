@@ -4,12 +4,23 @@ import java.util.concurrent.*;
 public class numPerfectosParalelo implements Callable<Integer>{
     private final int ini, fin;
 
+    /**
+     * Constructor del hilo
+     * @param linf  Primer número a comprobar si es perfecto
+     * @param lsup  Último número a comprobar si es perfecto. lsup no se comprueba, se comprueba hasta lsup-1
+     */
     public numPerfectosParalelo(int linf, int lsup){
         this.ini = linf;
         this.fin = lsup;
     }
 
-    private boolean esPerfecto(int num){
+    
+    /** 
+     * Recibe un número y devuelve si es perfecto o no
+     * @param num número a comprobar si es perfecto o no
+     * @return boolean
+     */
+    public boolean esPerfecto(int num){
         int cont = 1;
         for(int i = 2; i < num; i++){
             if(num % i == 0)
@@ -19,6 +30,11 @@ public class numPerfectosParalelo implements Callable<Integer>{
         return cont == num;
     }
 
+    
+    /** 
+     * Comportamiento del hilo(devuelve cuantos números son perfectos en su rango asginado)
+     * @return Integer
+     */
     public Integer call(){
         int total = 0;
         for(int i = ini; i < fin; i++)
@@ -28,6 +44,11 @@ public class numPerfectosParalelo implements Callable<Integer>{
         return (new Integer(total));
     }
 
+    
+    /** 
+     * Función main
+     * @param args argumentos por consola (debe recibir el primer número a comprobar, y el último)
+     */
     public static void main(String[] args) {
         int primero = Integer.parseInt(args[0]), ultimo = Integer.parseInt(args[1]), cont = 0;
         int nTareas = Runtime.getRuntime().availableProcessors() / (1-0);   //Cb = 0
