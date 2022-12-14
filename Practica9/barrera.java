@@ -7,6 +7,9 @@ public class barrera extends Thread{
         this.B = B;
     }
 
+    /**
+     * Comportamiento del hilo. Imprime un mensaje en pantalla hasta llegar a una cierta iteración, en la cual se sincroniza con el resto de hilos, para luego seguir iterando
+     */
     public void run(){
         for(int i = 0; i < 100; i++){
             if(i == 50){
@@ -18,6 +21,10 @@ public class barrera extends Thread{
         }
     }
 
+    /**
+     * Funcion principal. Lanza los hilos correspondientes
+     * @param args  Argumentos por consola, no son necesarios en este caso
+     */
     public static void main(String[] args) {
         CyclicBarrier B = new CyclicBarrier(3);
 
