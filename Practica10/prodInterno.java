@@ -1,9 +1,16 @@
 import mpi.*;
 
-// transfiere un array de enteros del emisor al recpetor
+// El receptor realiza el producto de un escalar que envía el emisor, y le devuelve el resultado
 // COMPILACION : javac -cp $MPJ_HOME/lib/mpj.jar prodInterno.java
-// EJECUCION : mpjrun.bat - np 2 prodInterno
+// EJECUCION : mpjrun.bat -np 2 prodInterno
+
 public class prodInterno{
+
+    /**
+     * Función principal. Lanza los equipos y define el comportamiento de emisor y receptor para el producto escalar.
+     * @param args  Parámetros por consola. Ver comentario EJECUCION: 
+     * @throws Exception 
+     */
     public static void main(String[] args) throws Exception {
         MPI.Init(args);
         int me = MPI.COMM_WORLD.Rank();
@@ -33,5 +40,7 @@ public class prodInterno{
 
             MPI.COMM_WORLD.Send(res, 0, 1, MPI.INT, emisor, tag+100);
         }
+
+        MPI.Finalize();
     }
 }
